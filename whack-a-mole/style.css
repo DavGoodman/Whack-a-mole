@@ -1,0 +1,69 @@
+body{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(201, 173, 137);}
+    
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spans{
+    margin-bottom: 50px;
+    font-size: 50px;
+}
+
+span{
+    margin: 20px;
+}
+
+h1{
+    font-size: 80px;
+    margin: 100px;
+}
+
+.btn{
+    border: 1px;
+    height: 40px;
+    width: 80px;
+    text-align: center;
+    font-weight: 500;
+    font-size: xx-large;
+    background-color: rgb(142, 97, 37);
+    border-radius: 10px;
+    margin-bottom: 50px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.416);
+    cursor: pointer;
+}
+
+.hole{
+    margin: 20px;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 2px 8px 8px inset;
+    background-color: rgb(80, 70, 58);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.mole {
+    background: url(https://pngimg.com/uploads/mole/mole_PNG3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.green {background-color: greenyellow;}
+
+.red {background-color: red;}
+
