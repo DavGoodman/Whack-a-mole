@@ -1,4 +1,4 @@
-
+let game = document.querySelector(".game")
 const container = document.querySelector(".container")
 const columnCount = 5 
 const holes =   [1, 2, 3, 4, 
@@ -23,7 +23,7 @@ function updateView(){
         <span>${"Hits: " + hits}</span>
         <span>${"Misses: " + misses}</span>
         </div>
-    <button onclick="start()" class="btn">start</button>
+    <button onclick="insertMole()" class="btn">start</button>
     <div class="game"></div>`
     let html = ""
     for (let i of holes){
@@ -38,31 +38,27 @@ function updateView(){
 
 
 
-function start(){
-    clearInterval()
-    random_wait_timer = generateRandomIntInRange(1000, 5000)
-    mole_interval = setInterval(insertMole, random_wait_timer)
-}
 
 function insertMole(){
-    random_timer = generateRandomIntInRange(400, 800)
+    random_wait_timer = generateRandomIntInRange(1000, 5000)
+    random_timer = generateRandomIntInRange(500, 1000)
     random_hole = generateRandomIntInRange(1, 20);
     setTimeout(delMole, random_timer)
     updateView()
+    setTimeout(insertMole, random_wait_timer)
+    console.log("hey")
 }
 
 function checkMole(divEl){
-    clearInterval(mole_interval)
     if (divEl.classList.contains("mole")){
         divEl.classList.remove("mole")
         divEl.classList.add("green")
         hits ++}
         
     else {divEl.classList.add("red")
-          misses ++}
-    setTimeout(5000, mole_interval = setInterval(insertMole, random_wait_timer))
+          misses ++
+        setTimeout(updateView, 1000)}
 
-    console.log(random_timer)
 }
 
 function delMole(){
