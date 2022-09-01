@@ -39,7 +39,7 @@ function updateView(){
 
 
 function insertMole(){
-    random_wait_timer = generateRandomIntInRange(1000, 5000)
+    random_wait_timer = generateRandomIntInRange(1000, 4000)
     random_timer = generateRandomIntInRange(500, 1000)
     random_hole = generateRandomIntInRange(1, 20);
     setTimeout(delMole, random_timer)
