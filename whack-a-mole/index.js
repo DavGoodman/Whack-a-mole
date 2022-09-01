@@ -1,3 +1,4 @@
+
 const container = document.querySelector(".container")
 const columnCount = 5 
 const holes =   [1, 2, 3, 4, 
@@ -11,7 +12,7 @@ let random_wait_timer
 let mole_interval;
 let misses = 0
 let hits = 0
-
+let button = true;
 
 
 updateView()
@@ -22,7 +23,7 @@ function updateView(){
         <span>${"Hits: " + hits}</span>
         <span>${"Misses: " + misses}</span>
         </div>
-    <button onclick="insertMole()" class="btn">start</button>
+    <button ${button == true? "" : "disabled"} onclick="insertMole()" class="btn">start</button>
     <div class="game"></div>`
     let html = ""
     for (let i of holes){
@@ -39,13 +40,13 @@ function updateView(){
 
 
 function insertMole(){
+    button = false
     random_wait_timer = generateRandomIntInRange(1000, 4000)
     random_timer = generateRandomIntInRange(500, 1000)
     random_hole = generateRandomIntInRange(1, 20);
     setTimeout(delMole, random_timer)
     updateView()
     setTimeout(insertMole, random_wait_timer)
-    console.log("hey")
 }
 
 function checkMole(divEl){
