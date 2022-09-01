@@ -23,7 +23,7 @@ function updateView(){
         <span>${"Hits: " + hits}</span>
         <span>${"Misses: " + misses}</span>
         </div>
-    <button ${button == true? "" : "disabled"} onclick="insertMole()" class="btn">start</button>
+    <button ${button == true? "" : "disabled style='cursor: default;'"} onclick="insertMole()" class="btn">start</button>
     <div class="game"></div>`
     let html = ""
     for (let i of holes){
