@@ -8,6 +8,7 @@ const holes =   [1, 2, 3, 4,
 
 let random_hole;
 let random_timer;
+let random_wait_timer
 let mole_interval;
 let misses = 0
 let hits = 0
@@ -26,7 +27,7 @@ function updateView(){
     <div class="game"></div>`
     let html = ""
     for (let i of holes){
-        html += `<div onclick="checkMole(this)" class="hole ${i == random_hole? "mole" : ""}">${i}</div>`
+        html += `<div onclick="checkMole(this)" class="hole ${i == random_hole? "mole" : ""}"></div>`
     }
     let game = document.querySelector(".game")
     game.innerHTML = html;
@@ -38,18 +39,19 @@ function updateView(){
 
 
 function start(){
-    random_timer = generateRandomIntInRange(400, 800)
-    clearInterval(mole_interval)
-    mole_interval = setInterval(insertMole, random_timer)
+    clearInterval()
+    random_wait_timer = generateRandomIntInRange(1000, 5000)
+    mole_interval = setInterval(insertMole, random_wait_timer)
 }
 
 function insertMole(){
+    random_timer = generateRandomIntInRange(400, 800)
     random_hole = generateRandomIntInRange(1, 20);
+    setTimeout(delMole, random_timer)
     updateView()
 }
 
 function checkMole(divEl){
-    random_timer = generateRandomIntInRange(400, 800)
     clearInterval(mole_interval)
     if (divEl.classList.contains("mole")){
         divEl.classList.remove("mole")
@@ -58,10 +60,14 @@ function checkMole(divEl){
         
     else {divEl.classList.add("red")
           misses ++}
+    setTimeout(5000, mole_interval = setInterval(insertMole, random_wait_timer))
 
-    setTimeout(500)
-    mole_interval = setInterval(insertMole, random_timer)
     console.log(random_timer)
+}
+
+function delMole(){
+    random_hole = 0
+    updateView()
 }
 
 function generateRandomIntInRange(min, max) {
