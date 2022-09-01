@@ -1,4 +1,4 @@
-let game = document.querySelector(".game")
+
 const container = document.querySelector(".container")
 const columnCount = 5 
 const holes =   [1, 2, 3, 4, 
